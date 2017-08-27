@@ -92,7 +92,7 @@ class UpdateCompanyInfoHandler(tornado.web.RequestHandler):  # 用户信息编�
             'fax': self.get_argument('fax'),
             'website': self.get_argument('website'),
         })
-        self.redirect('http://47.93.4.14:9999')  # 数据库更新后，转到首页
+        self.redirect('localhost:9999')  # 数据库更新后，转到首页
 
 
 class DeleteCompanyHandler(tornado.web.RequestHandler):  # 这个Handler用来响应/DeleteUser的URL
