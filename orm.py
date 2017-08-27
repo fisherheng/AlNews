@@ -9,7 +9,7 @@ database_setting = {'database_type': 'mysql',  # 数据库类型
                     'connector': 'mysqlconnector',  # 数据库连接器
                     'user_name': 'root',  # 用户名，根据实际情况修改
                     'password': 'zhang@heng0617M',  # 用户密码，根据实际情况修改
-                    'host_name': '47.93.4.14',  # 在本机上运行
+                    'host_name': 'localhost',  # 在本机上运行
                     'database_name': 'platform',
                     'charset': 'charset=utf8'
                     }
