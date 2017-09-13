@@ -12,7 +12,7 @@
             公司名称:<input type = 'text' name = 'company_name' />
             地址:<input type = 'text' name = 'address' />
             邮箱:<input type = 'text' name = 'email' />
-            手机:<input type = 'text' name = 'telphone' />
+            手机:<input type = 'text' name = 'telephone' />
             电话:<input type = 'text' name = 'fax' />
             网址:<input type = 'text' name = 'website' />
             <input type = 'submit' value = '提交' />
@@ -29,21 +29,24 @@
                 <td width = '200' >网址</td>
                 <td width = '100' ></td>
                 <td width = '100' ></td>
+                <td width = '100' ></td>
         </tr>
         <!--users是一个由服务器端通过查询数据库而产生的列表，这里用for语句可以把用户信息全部输出-->
         {% for company in companys %}
         <tr align = 'center'>
                 <!--user.user_name即是用户名。下同-->
                 <td>{{ company.company_name }}</td>
-                <td>{{ company.address }}</td>
-                <td>{{ company.email }}</td>
-                <td>{{ company.telphone }}</td>
-                <td>{{ company.fax }}</td>
-                <td>{{ company.website }}</td>
+                <td>{{ company.company_address }}</td>
+                <td>{{ company.company_email }}</td>
+                <td>{{ company.company_telephone }}</td>
+                <td>{{ company.company_fax }}</td>
+                <td>{{ company.company_website }}</td>
                 <!--编辑链接，可以编辑指定用户名的信息-->
                 <td><a href = 'EditCompany?company_name={{company.company_name}}' >编辑</a></td>
                 <!--删除链接，可以删除指定用户名的信息-->
                 <td><a href = 'DeleteCompany?company_name={{company.company_name}}' >删除</a></td>
+                <!--Show company's detail info-->
+                <td><a href = 'DetailCompany?company_name={{company.company_name}}' >详细</a></td>
         </tr>
         <!--for循环结束-->
         {% end %}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+
+</head>
+<body>
+<table border = 1>
+        <tr style = 'font-weight:bold' align = 'center'>
+                <td width = '200' >公司</td>
+                <td width = '100' >地址</td>
+                <td width = '100' >邮箱</td>
+                <td width = '100' >手机</td>
+                <td width = '200' >电话</td>
+                <td width = '200' >网址</td>
+                <td width = '100' ></td>
+                <td width = '100' ></td>
+                <td width = '100' ></td>
+        </tr>
+        <tr align = 'center'>
+                <td>{{ company.company_name }}</td>
+                <td>{{ company.company_address }}</td>
+                <td>{{ company.company_email }}</td>
+                <td>{{ company.company_telephone }}</td>
+                <td>{{ company.company_fax }}</td>
+                <td>{{ company.company_website }}</td>
+                <td><a href = 'EditCompany?company_name={{company.company_name}}' >编辑</a></td>
+                <td><a href = 'DeleteCompany?company_name={{company.company_name}}' >删除</a></td>
+        </tr>
+</table>
+</body>
+</html>
