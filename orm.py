@@ -41,16 +41,15 @@ class Company(object):
         self.company_fax = company_fax
         self.company_website = company_website
 
+# Class: CompanyManagerORM
+# Writer: Heng
 class CompanyManagerORM():
 
     # Name: __init__
     # Writer: Heng
     # function: Construction method.
     def __init__(self):
-        ''''' 
-            # 这个方法就是类的构造函数，对象创建的时候自动运行 
-        '''
-        self.engine = create_engine(  # 生成连接字符串，有特定的格式
+        self.engine = create_engine(
             database_setting['database_type'] +
             '+' +
             database_setting['connector'] +
@@ -64,7 +63,7 @@ class CompanyManagerORM():
             database_setting['database_name'] +
             '?' +
             database_setting['charset']
-        )
+        )   # Construct connection string.
 
         self.metadata = MetaData(self.engine)
         self.company_table = Table('company', self.metadata,
@@ -76,26 +75,32 @@ class CompanyManagerORM():
         self.Session.configure(bind=self.engine)
         self.session = self.Session()
 
+    # Name: CreateNewCompany
+    # Writer: Heng
+    # Function: Write new company information to database.
     def CreateNewCompany(self, company_info):
         new_company = Company(
             company_info['company_name'],
             company_info['address'],
             company_info['email'],
-            company_info['telphone'],
+            company_info['telephone'],
             company_info['fax'],
             company_info['website']
         )
-        self.session.add(new_company)  # 增加新用户
-        self.session.commit()  # 保存修改
+        self.session.add(new_company)
+        self.session.commit()
 
-    def GetCompanyByName(self, company_name):  # 根据用户名返回信息
+    # Name: GetCompanyByName
+    # Writer: Heng
+    # Function: Get company information from database, searching by name.
+    def GetCompanyByName(self, company_name):
         return self.session.query(Company).filter_by(
             company_name=company_name).all()[0]
 
     # Name: GetAllCompany
     # Writer: Heng
     # Function: Get all companies' information.
-    def GetAllCompany(self):  # 返回所有用户的列表
+    def GetAllCompany(self):
         return self.session.query(Company)
 
     # Name: UpdateCompanyInfoByNmae

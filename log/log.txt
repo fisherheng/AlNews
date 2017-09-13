@@ -1,78 +1,99 @@
-2017-09-13 08:40:22,161 - tornado.access - INFO - 200 GET /DetailCompany?company_name=%E5%B1%B1%E4%B8%9C%E7%99%BE%E8%83%9C%E9%93%9D%E4%B8%9A%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8 (::1) 138.34ms
-2017-09-13 08:40:25,452 - tornado.access - INFO - 200 GET / (::1) 308.59ms
-2017-09-13 08:40:28,139 - __main__ - ERROR - Extra {% end %} block at templates/detail.html:32
-2017-09-13 08:40:28,140 - tornado.access - INFO - 200 GET /DetailCompany?company_name=%E5%B1%B1%E4%B8%9C%E7%99%BE%E8%83%9C%E9%93%9D%E4%B8%9A%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8 (::1) 142.91ms
-2017-09-13 08:40:38,556 - __main__ - INFO - ==============================logging start==============================
-2017-09-13 08:40:42,131 - tornado.access - INFO - 200 GET / (::1) 342.28ms
-2017-09-13 08:40:44,426 - tornado.application - ERROR - Uncaught exception GET /DetailCompany?company_name=%E5%B1%B1%E4%B8%9C%E7%99%BE%E8%83%9C%E9%93%9D%E4%B8%9A%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8 (::1)
-HTTPServerRequest(protocol='http', host='localhost:9999', method='GET', uri='/DetailCompany?company_name=%E5%B1%B1%E4%B8%9C%E7%99%BE%E8%83%9C%E9%93%9D%E4%B8%9A%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8', version='HTTP/1.1', remote_ip='::1', headers={'Host': 'localhost:9999', 'Connection': 'keep-alive', 'Upgrade-Insecure-Requests': '1', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'Dnt': '1', 'Referer': 'http://localhost:9999/', 'Accept-Encoding': 'gzip, deflate, br', 'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6', 'Cookie': 'Pycharm-a476ea69=2ff4413e-3b15-4d4d-8424-eca91ca8968c'})
+2017-09-13 11:16:55,322 - tornado.application - ERROR - Uncaught exception GET / (::1)
+HTTPServerRequest(protocol='http', host='localhost:9999', method='GET', uri='/', version='HTTP/1.1', remote_ip='::1', headers={'Host': 'localhost:9999', 'Connection': 'keep-alive', 'Upgrade-Insecure-Requests': '1', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'Dnt': '1', 'Accept-Encoding': 'gzip, deflate, br', 'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6'})
 Traceback (most recent call last):
-  File "/Users/zhangheng/Projects/AlNews/server.py", line 121, in get
-    self.render('templates/detail.html', title=title, company_info=company_info)  # Show this page:index.html.
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 724, in render
-    html = self.render_string(template_name, **kwargs)
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 862, in render_string
-    t = loader.load(template_name)
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/template.py", line 427, in load
-    self.templates[name] = self._create_template(name)
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/template.py", line 455, in _create_template
-    template = Template(f.read(), name=name, loader=self)
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/template.py", line 306, in __init__
-    self.file = _File(self, _parse(reader, self))
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/template.py", line 901, in _parse
-    reader.raise_parse_error("Extra {% end %} block")
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/template.py", line 788, in raise_parse_error
-    raise ParseError(msg, self.name, self.line)
-tornado.template.ParseError: Extra {% end %} block at templates/detail.html:32
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1112, in _execute_context
+    conn = self.__connection
+AttributeError: 'Connection' object has no attribute '_Connection__connection'
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 1509, in _execute
-    result = method(*self.path_args, **self.path_kwargs)
-  File "/Users/zhangheng/Projects/AlNews/server.py", line 123, in get
-    self.write_error(e)
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 1064, in write_error
-    "message": self._reason,
-TypeError: %d format: a number is required, not ParseError
-2017-09-13 08:40:44,430 - tornado.access - ERROR - 500 GET /DetailCompany?company_name=%E5%B1%B1%E4%B8%9C%E7%99%BE%E8%83%9C%E9%93%9D%E4%B8%9A%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8 (::1) 142.45ms
-2017-09-13 08:43:09,669 - __main__ - INFO - ==============================logging start==============================
-2017-09-13 08:43:15,971 - tornado.access - INFO - 200 GET / (::1) 274.40ms
-2017-09-13 08:43:19,043 - __main__ - ERROR - Extra {% end %} block at templates/detail.html:32
-2017-09-13 08:43:19,044 - tornado.access - INFO - 200 GET /DetailCompany?company_name=%E5%B1%B1%E4%B8%9C%E7%99%BE%E8%83%9C%E9%93%9D%E4%B8%9A%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8 (::1) 156.52ms
-2017-09-13 08:44:01,362 - __main__ - INFO - ==============================logging start==============================
-2017-09-13 08:44:04,901 - __main__ - ERROR - name 'company' is not defined
-2017-09-13 08:44:04,902 - tornado.access - INFO - 200 GET /DetailCompany?company_name=%E5%B1%B1%E4%B8%9C%E7%99%BE%E8%83%9C%E9%93%9D%E4%B8%9A%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8 (::1) 139.71ms
-2017-09-13 08:44:07,206 - tornado.access - INFO - 200 GET / (::1) 268.77ms
-2017-09-13 08:44:09,222 - __main__ - ERROR - name 'company' is not defined
-2017-09-13 08:44:09,222 - tornado.access - INFO - 200 GET /DetailCompany?company_name=%E5%B1%B1%E4%B8%9C%E7%99%BE%E8%83%9C%E9%93%9D%E4%B8%9A%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8 (::1) 127.83ms
-2017-09-13 08:44:51,752 - __main__ - INFO - ==============================logging start==============================
-2017-09-13 08:44:55,210 - tornado.access - INFO - 200 GET / (::1) 275.62ms
-2017-09-13 08:44:57,447 - tornado.access - INFO - 200 GET /DetailCompany?company_name=%E5%B1%B1%E4%B8%9C%E7%99%BE%E8%83%9C%E9%93%9D%E4%B8%9A%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8 (::1) 146.00ms
-2017-09-13 08:44:57,448 - __main__ - INFO - Show detail information successfully!
-2017-09-13 08:46:00,291 - tornado.application - ERROR - Uncaught exception GET /EditCompany?company_name=%E5%B1%B1%E4%B8%9C%E7%99%BE%E8%83%9C%E9%93%9D%E4%B8%9A%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8 (::1)
-HTTPServerRequest(protocol='http', host='localhost:9999', method='GET', uri='/EditCompany?company_name=%E5%B1%B1%E4%B8%9C%E7%99%BE%E8%83%9C%E9%93%9D%E4%B8%9A%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8', version='HTTP/1.1', remote_ip='::1', headers={'Host': 'localhost:9999', 'Connection': 'keep-alive', 'Upgrade-Insecure-Requests': '1', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'Dnt': '1', 'Referer': 'http://localhost:9999/DetailCompany?company_name=%E5%B1%B1%E4%B8%9C%E7%99%BE%E8%83%9C%E9%93%9D%E4%B8%9A%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8', 'Accept-Encoding': 'gzip, deflate, br', 'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6', 'Cookie': 'Pycharm-a476ea69=2ff4413e-3b15-4d4d-8424-eca91ca8968c'})
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1114, in _execute_context
+    conn = self._revalidate_connection()
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 424, in _revalidate_connection
+    "Can't reconnect until invalid "
+sqlalchemy.exc.InvalidRequestError: Can't reconnect until invalid transaction is rolled back
+
+The above exception was the direct cause of the following exception:
+
 Traceback (most recent call last):
   File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 1509, in _execute
     result = method(*self.path_args, **self.path_kwargs)
-  File "/Users/zhangheng/Projects/AlNews/server.py", line 72, in get
-    self.render('templates/EditUserInfo.html', company_info=company_info)  # 将该用户信息发送到EditUserInfo.html以供修改
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 724, in render
-    html = self.render_string(template_name, **kwargs)
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 862, in render_string
-    t = loader.load(template_name)
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/template.py", line 427, in load
-    self.templates[name] = self._create_template(name)
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/template.py", line 454, in _create_template
-    with open(path, "rb") as f:
-FileNotFoundError: [Errno 2] No such file or directory: '/Users/zhangheng/Projects/AlNews/templates/EditUserInfo.html'
-2017-09-13 08:46:00,294 - tornado.access - ERROR - 500 GET /EditCompany?company_name=%E5%B1%B1%E4%B8%9C%E7%99%BE%E8%83%9C%E9%93%9D%E4%B8%9A%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8 (::1) 135.28ms
-2017-09-13 08:46:06,336 - tornado.access - INFO - 200 GET /DetailCompany?company_name=%E5%B1%B1%E4%B8%9C%E7%99%BE%E8%83%9C%E9%93%9D%E4%B8%9A%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8 (::1) 133.06ms
-2017-09-13 08:46:06,337 - __main__ - INFO - Show detail information successfully!
-2017-09-13 08:46:08,707 - orm - INFO - Delete company's info successfully
-2017-09-13 08:46:08,707 - __main__ - INFO - Delete company info successfully!
-2017-09-13 08:46:08,708 - tornado.access - INFO - 302 GET /DeleteCompany?company_name=%E5%B1%B1%E4%B8%9C%E7%99%BE%E8%83%9C%E9%93%9D%E4%B8%9A%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8 (::1) 408.96ms
-2017-09-13 08:46:11,823 - tornado.access - INFO - 200 GET / (::1) 275.14ms
-2017-09-13 08:46:39,835 - tornado.general - WARNING - 400 POST /AddCompany (::1): Missing argument telphone
-2017-09-13 08:46:39,836 - tornado.access - WARNING - 400 POST /AddCompany (::1) 0.91ms
-2017-09-13 08:47:03,416 - tornado.access - INFO - 200 GET / (::1) 327.52ms
+  File "/Users/zhangheng/Projects/AlNews/server.py", line 29, in get
+    for company in companys:
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2855, in __iter__
+    return self._execute_and_instances(context)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2878, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 945, in execute
+    return meth(self, multiparams, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/sql/elements.py", line 263, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1053, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1121, in _execute_context
+    None, None)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1402, in _handle_dbapi_exception
+    exc_info
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1114, in _execute_context
+    conn = self._revalidate_connection()
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 424, in _revalidate_connection
+    "Can't reconnect until invalid "
+sqlalchemy.exc.StatementError: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back [SQL: 'SELECT company.company_id AS company_company_id, company.company_name AS company_company_name, company.company_province AS company_company_province, company.company_provincecode AS company_company_provincecode, company.company_city AS company_company_city, company.company_citycode AS company_company_citycode, company.company_area AS company_company_area, company.company_areacode AS company_company_areacode, company.company_address AS company_company_address, company.company_email AS company_company_email, company.company_telephone AS company_company_telephone, company.company_fax AS company_company_fax, company.company_website AS company_company_website \nFROM company'] [parameters: [{}]]
+2017-09-13 11:16:55,326 - tornado.access - ERROR - 500 GET / (::1) 6.14ms
+2017-09-13 11:16:59,441 - tornado.application - ERROR - Uncaught exception GET / (::1)
+HTTPServerRequest(protocol='http', host='localhost:9999', method='GET', uri='/', version='HTTP/1.1', remote_ip='::1', headers={'Host': 'localhost:9999', 'Connection': 'keep-alive', 'Cache-Control': 'max-age=0', 'Upgrade-Insecure-Requests': '1', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'Dnt': '1', 'Accept-Encoding': 'gzip, deflate, br', 'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6', 'Cookie': 'Pycharm-a476ea69=2ff4413e-3b15-4d4d-8424-eca91ca8968c'})
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1112, in _execute_context
+    conn = self.__connection
+AttributeError: 'Connection' object has no attribute '_Connection__connection'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1114, in _execute_context
+    conn = self._revalidate_connection()
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 424, in _revalidate_connection
+    "Can't reconnect until invalid "
+sqlalchemy.exc.InvalidRequestError: Can't reconnect until invalid transaction is rolled back
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 1509, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "/Users/zhangheng/Projects/AlNews/server.py", line 29, in get
+    for company in companys:
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2855, in __iter__
+    return self._execute_and_instances(context)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2878, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 945, in execute
+    return meth(self, multiparams, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/sql/elements.py", line 263, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1053, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1121, in _execute_context
+    None, None)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1402, in _handle_dbapi_exception
+    exc_info
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1114, in _execute_context
+    conn = self._revalidate_connection()
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 424, in _revalidate_connection
+    "Can't reconnect until invalid "
+sqlalchemy.exc.StatementError: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back [SQL: 'SELECT company.company_id AS company_company_id, company.company_name AS company_company_name, company.company_province AS company_company_province, company.company_provincecode AS company_company_provincecode, company.company_city AS company_company_city, company.company_citycode AS company_company_citycode, company.company_area AS company_company_area, company.company_areacode AS company_company_areacode, company.company_address AS company_company_address, company.company_email AS company_company_email, company.company_telephone AS company_company_telephone, company.company_fax AS company_company_fax, company.company_website AS company_company_website \nFROM company'] [parameters: [{}]]
+2017-09-13 11:16:59,442 - tornado.access - ERROR - 500 GET / (::1) 2.09ms
+2017-09-13 11:25:07,508 - __main__ - INFO - ==============================logging start==============================
+2017-09-13 11:25:14,604 - tornado.access - INFO - 200 GET / (::1) 278.36ms
+2017-09-13 11:25:20,998 - tornado.access - INFO - 200 GET / (::1) 255.06ms
+2017-09-13 11:25:22,817 - tornado.access - INFO - 200 GET / (::1) 264.62ms
+2017-09-13 11:28:49,846 - __main__ - INFO - ==============================logging start==============================
