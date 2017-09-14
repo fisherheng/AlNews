@@ -1,99 +1,87 @@
-2017-09-13 11:16:55,322 - tornado.application - ERROR - Uncaught exception GET / (::1)
-HTTPServerRequest(protocol='http', host='localhost:9999', method='GET', uri='/', version='HTTP/1.1', remote_ip='::1', headers={'Host': 'localhost:9999', 'Connection': 'keep-alive', 'Upgrade-Insecure-Requests': '1', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'Dnt': '1', 'Accept-Encoding': 'gzip, deflate, br', 'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6'})
-Traceback (most recent call last):
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1112, in _execute_context
-    conn = self.__connection
-AttributeError: 'Connection' object has no attribute '_Connection__connection'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1114, in _execute_context
-    conn = self._revalidate_connection()
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 424, in _revalidate_connection
-    "Can't reconnect until invalid "
-sqlalchemy.exc.InvalidRequestError: Can't reconnect until invalid transaction is rolled back
-
-The above exception was the direct cause of the following exception:
-
+2017-09-13 23:19:52,482 - tornado.application - ERROR - Uncaught exception GET /EditCompany?company_name=1 (::1)
+HTTPServerRequest(protocol='http', host='localhost:9999', method='GET', uri='/EditCompany?company_name=1', version='HTTP/1.1', remote_ip='::1', headers={'Host': 'localhost:9999', 'Connection': 'keep-alive', 'Upgrade-Insecure-Requests': '1', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'Dnt': '1', 'Referer': 'http://localhost:9999/', 'Accept-Encoding': 'gzip, deflate, br', 'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6', 'Cookie': 'Pycharm-a476ea69=2ff4413e-3b15-4d4d-8424-eca91ca8968c'})
 Traceback (most recent call last):
   File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 1509, in _execute
     result = method(*self.path_args, **self.path_kwargs)
-  File "/Users/zhangheng/Projects/AlNews/server.py", line 29, in get
-    for company in companys:
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2855, in __iter__
-    return self._execute_and_instances(context)
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2878, in _execute_and_instances
-    result = conn.execute(querycontext.statement, self._params)
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 945, in execute
-    return meth(self, multiparams, params)
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/sql/elements.py", line 263, in _execute_on_connection
-    return connection._execute_clauseelement(self, multiparams, params)
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1053, in _execute_clauseelement
-    compiled_sql, distilled_params
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1121, in _execute_context
-    None, None)
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1402, in _handle_dbapi_exception
-    exc_info
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
-    reraise(type(exception), exception, tb=exc_tb, cause=cause)
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
-    raise value.with_traceback(tb)
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1114, in _execute_context
-    conn = self._revalidate_connection()
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 424, in _revalidate_connection
-    "Can't reconnect until invalid "
-sqlalchemy.exc.StatementError: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back [SQL: 'SELECT company.company_id AS company_company_id, company.company_name AS company_company_name, company.company_province AS company_company_province, company.company_provincecode AS company_company_provincecode, company.company_city AS company_company_city, company.company_citycode AS company_company_citycode, company.company_area AS company_company_area, company.company_areacode AS company_company_areacode, company.company_address AS company_company_address, company.company_email AS company_company_email, company.company_telephone AS company_company_telephone, company.company_fax AS company_company_fax, company.company_website AS company_company_website \nFROM company'] [parameters: [{}]]
-2017-09-13 11:16:55,326 - tornado.access - ERROR - 500 GET / (::1) 6.14ms
-2017-09-13 11:16:59,441 - tornado.application - ERROR - Uncaught exception GET / (::1)
-HTTPServerRequest(protocol='http', host='localhost:9999', method='GET', uri='/', version='HTTP/1.1', remote_ip='::1', headers={'Host': 'localhost:9999', 'Connection': 'keep-alive', 'Cache-Control': 'max-age=0', 'Upgrade-Insecure-Requests': '1', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'Dnt': '1', 'Accept-Encoding': 'gzip, deflate, br', 'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6', 'Cookie': 'Pycharm-a476ea69=2ff4413e-3b15-4d4d-8424-eca91ca8968c'})
-Traceback (most recent call last):
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1112, in _execute_context
-    conn = self.__connection
-AttributeError: 'Connection' object has no attribute '_Connection__connection'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1114, in _execute_context
-    conn = self._revalidate_connection()
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 424, in _revalidate_connection
-    "Can't reconnect until invalid "
-sqlalchemy.exc.InvalidRequestError: Can't reconnect until invalid transaction is rolled back
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 1509, in _execute
-    result = method(*self.path_args, **self.path_kwargs)
-  File "/Users/zhangheng/Projects/AlNews/server.py", line 29, in get
-    for company in companys:
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2855, in __iter__
-    return self._execute_and_instances(context)
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2878, in _execute_and_instances
-    result = conn.execute(querycontext.statement, self._params)
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 945, in execute
-    return meth(self, multiparams, params)
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/sql/elements.py", line 263, in _execute_on_connection
-    return connection._execute_clauseelement(self, multiparams, params)
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1053, in _execute_clauseelement
-    compiled_sql, distilled_params
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1121, in _execute_context
-    None, None)
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1402, in _handle_dbapi_exception
-    exc_info
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
-    reraise(type(exception), exception, tb=exc_tb, cause=cause)
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
-    raise value.with_traceback(tb)
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1114, in _execute_context
-    conn = self._revalidate_connection()
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 424, in _revalidate_connection
-    "Can't reconnect until invalid "
-sqlalchemy.exc.StatementError: (sqlalchemy.exc.InvalidRequestError) Can't reconnect until invalid transaction is rolled back [SQL: 'SELECT company.company_id AS company_company_id, company.company_name AS company_company_name, company.company_province AS company_company_province, company.company_provincecode AS company_company_provincecode, company.company_city AS company_company_city, company.company_citycode AS company_company_citycode, company.company_area AS company_company_area, company.company_areacode AS company_company_areacode, company.company_address AS company_company_address, company.company_email AS company_company_email, company.company_telephone AS company_company_telephone, company.company_fax AS company_company_fax, company.company_website AS company_company_website \nFROM company'] [parameters: [{}]]
-2017-09-13 11:16:59,442 - tornado.access - ERROR - 500 GET / (::1) 2.09ms
-2017-09-13 11:25:07,508 - __main__ - INFO - ==============================logging start==============================
-2017-09-13 11:25:14,604 - tornado.access - INFO - 200 GET / (::1) 278.36ms
-2017-09-13 11:25:20,998 - tornado.access - INFO - 200 GET / (::1) 255.06ms
-2017-09-13 11:25:22,817 - tornado.access - INFO - 200 GET / (::1) 264.62ms
-2017-09-13 11:28:49,846 - __main__ - INFO - ==============================logging start==============================
+  File "/Users/zhangheng/Projects/AlNews/server.py", line 79, in get
+    self.render('templates/EditUserInfo.html', company_info=company_info)  # 将该用户信息发送到EditUserInfo.html以供修改
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 724, in render
+    html = self.render_string(template_name, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 862, in render_string
+    t = loader.load(template_name)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/template.py", line 427, in load
+    self.templates[name] = self._create_template(name)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/template.py", line 454, in _create_template
+    with open(path, "rb") as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/zhangheng/Projects/AlNews/templates/EditUserInfo.html'
+2017-09-13 23:19:52,491 - tornado.access - ERROR - 500 GET /EditCompany?company_name=1 (::1) 133.75ms
+2017-09-13 23:19:54,979 - tornado.access - INFO - 200 GET / (::1) 256.92ms
+2017-09-13 23:19:58,122 - orm - INFO - Delete company's info successfully
+2017-09-13 23:19:58,122 - __main__ - INFO - Delete company info successfully!
+2017-09-13 23:19:58,123 - tornado.access - INFO - 302 GET /DeleteCompany?company_name=1 (::1) 343.68ms
+2017-09-13 23:20:06,884 - tornado.access - INFO - 200 GET / (::1) 313.26ms
+2017-09-13 23:22:27,149 - __main__ - INFO - ==============================logging start==============================
+2017-09-13 23:22:30,407 - tornado.access - INFO - 200 GET / (::1) 268.43ms
+2017-09-13 23:22:32,850 - orm - INFO - Delete company's info successfully
+2017-09-13 23:22:32,851 - __main__ - INFO - Delete company info successfully!
+2017-09-13 23:22:32,851 - tornado.access - INFO - 302 GET /DeleteCompany?company_name=1 (::1) 333.57ms
+2017-09-13 23:26:55,136 - __main__ - INFO - ==============================logging start==============================
+2017-09-13 23:27:00,924 - tornado.access - INFO - 200 GET / (::1) 247.96ms
+2017-09-13 23:27:03,383 - orm - INFO - Delete company's info successfully
+2017-09-13 23:27:03,384 - __main__ - INFO - Delete company info successfully!
+2017-09-13 23:27:03,384 - tornado.access - INFO - 302 GET /DeleteCompany?company_name=1 (::1) 302.57ms
+2017-09-13 23:33:46,217 - __main__ - INFO - ==============================logging start==============================
+2017-09-13 23:33:49,192 - tornado.access - INFO - 200 GET / (::1) 256.45ms
+2017-09-13 23:33:51,635 - orm - INFO - Delete company's info successfully
+2017-09-13 23:33:51,635 - __main__ - INFO - Delete company info successfully!
+2017-09-13 23:33:51,636 - tornado.access - INFO - 302 GET /DeleteCompany?company_name=1 (::1) 311.72ms
+2017-09-13 23:34:33,082 - __main__ - INFO - ==============================logging start==============================
+2017-09-13 23:34:36,765 - tornado.access - INFO - 200 GET / (::1) 391.13ms
+2017-09-13 23:34:39,511 - orm - INFO - Delete company's info successfully
+2017-09-13 23:34:39,512 - __main__ - INFO - Delete company info successfully!
+2017-09-13 23:34:39,512 - tornado.access - INFO - 302 GET /DeleteCompany?company_name=1 (::1) 369.38ms
+2017-09-13 23:34:39,513 - __main__ - INFO - Redirect to index successfully!
+2017-09-13 23:35:33,869 - __main__ - INFO - ==============================logging start==============================
+2017-09-13 23:35:37,800 - tornado.access - INFO - 200 GET / (::1) 273.23ms
+2017-09-13 23:35:40,282 - tornado.access - INFO - 200 GET /CreateCompany (::1) 2.07ms
+2017-09-13 23:36:24,110 - tornado.access - INFO - 302 POST /AddCompany (::1) 186.17ms
+2017-09-13 23:36:24,776 - tornado.access - INFO - 302 POST /AddCompany (::1) 217.56ms
+2017-09-13 23:36:24,970 - tornado.access - INFO - 302 POST /AddCompany (::1) 192.69ms
+2017-09-13 23:36:25,146 - tornado.access - INFO - 302 POST /AddCompany (::1) 175.31ms
+2017-09-13 23:36:25,387 - tornado.access - INFO - 302 POST /AddCompany (::1) 239.15ms
+2017-09-13 23:36:25,575 - tornado.access - INFO - 302 POST /AddCompany (::1) 187.50ms
+2017-09-13 23:36:25,747 - tornado.access - INFO - 302 POST /AddCompany (::1) 170.78ms
+2017-09-13 23:36:25,965 - tornado.access - INFO - 302 POST /AddCompany (::1) 217.26ms
+2017-09-13 23:36:26,168 - tornado.access - INFO - 302 POST /AddCompany (::1) 200.85ms
+2017-09-13 23:36:26,386 - tornado.access - INFO - 302 POST /AddCompany (::1) 217.01ms
+2017-09-13 23:36:26,655 - tornado.access - INFO - 302 POST /AddCompany (::1) 268.01ms
+2017-09-13 23:36:26,843 - tornado.access - INFO - 302 POST /AddCompany (::1) 187.06ms
+2017-09-13 23:36:27,016 - tornado.access - INFO - 302 POST /AddCompany (::1) 171.53ms
+2017-09-13 23:36:27,193 - tornado.access - INFO - 302 POST /AddCompany (::1) 175.76ms
+2017-09-13 23:36:27,371 - tornado.access - INFO - 302 POST /AddCompany (::1) 177.45ms
+2017-09-13 23:36:27,580 - tornado.access - INFO - 302 POST /AddCompany (::1) 207.94ms
+2017-09-13 23:36:27,775 - tornado.access - INFO - 302 POST /AddCompany (::1) 193.62ms
+2017-09-13 23:36:33,248 - tornado.access - INFO - 200 GET / (::1) 217.33ms
+2017-09-13 23:36:36,960 - orm - INFO - Delete company's info successfully
+2017-09-13 23:36:36,961 - __main__ - INFO - Delete company info successfully!
+2017-09-13 23:36:36,961 - tornado.access - INFO - 302 GET /DeleteCompany?company_name=%E5%B1%B1%E4%B8%9C%E7%99%BE%E7%9B%9B%E9%93%9D%E4%B8%9A%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8 (::1) 399.35ms
+2017-09-13 23:36:36,961 - __main__ - INFO - Redirect to index successfully!
+2017-09-13 23:36:36,966 - tornado.access - WARNING - 404 GET /www.baidu.com (::1) 0.45ms
+2017-09-13 23:37:02,457 - tornado.access - INFO - 200 GET / (::1) 277.27ms
+2017-09-13 23:37:33,870 - __main__ - INFO - ==============================logging start==============================
+2017-09-13 23:37:38,120 - tornado.access - INFO - 200 GET / (::1) 281.66ms
+2017-09-13 23:37:40,245 - orm - INFO - Delete company's info successfully
+2017-09-13 23:37:40,245 - __main__ - INFO - Delete company info successfully!
+2017-09-13 23:37:40,246 - tornado.access - INFO - 302 GET /DeleteCompany?company_name=%E5%B1%B1%E4%B8%9C%E7%99%BE%E7%9B%9B%E9%93%9D%E4%B8%9A%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8 (::1) 377.03ms
+2017-09-13 23:37:40,246 - __main__ - INFO - Redirect to index successfully!
+2017-09-13 23:37:40,475 - tornado.access - INFO - 200 GET / (::1) 225.57ms
+2017-09-13 23:37:44,231 - orm - INFO - Delete company's info successfully
+2017-09-13 23:37:44,231 - __main__ - INFO - Delete company info successfully!
+2017-09-13 23:37:44,232 - tornado.access - INFO - 302 GET /DeleteCompany?company_name=%E5%B1%B1%E4%B8%9C%E7%99%BE%E7%9B%9B%E9%93%9D%E4%B8%9A%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8 (::1) 305.14ms
+2017-09-13 23:37:44,232 - __main__ - INFO - Redirect to index successfully!
+2017-09-13 23:37:44,506 - tornado.access - INFO - 200 GET / (::1) 270.35ms
+2017-09-13 23:39:23,074 - __main__ - INFO - ==============================logging start==============================
+2017-09-13 23:39:27,251 - tornado.access - INFO - 200 GET / (::1) 389.85ms
+2017-09-13 23:39:31,389 - tornado.access - INFO - 200 GET /CreateCompany (::1) 1.06ms
+2017-09-13 23:40:33,070 - tornado.access - INFO - 302 POST /AddCompany (::1) 212.43ms
+2017-09-13 23:40:33,322 - tornado.access - INFO - 200 GET / (::1) 238.46ms

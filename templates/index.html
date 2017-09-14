@@ -4,21 +4,6 @@
     <!--这里的{{title}}表示title这个变量的内容由服务器端产生并填写到该位置-->
     <title>{{title}}</title>
 <body>
-<center><h1>注册公司</h1></center>
-<hr/>
-<center>
-    <!--表单以POST方式提交到AddUser-->
-    <form name = 'new_company' action = 'AddCompany' method = 'post'>
-            公司名称:<input type = 'text' name = 'company_name' />
-            地址:<input type = 'text' name = 'address' />
-            邮箱:<input type = 'text' name = 'email' />
-            手机:<input type = 'text' name = 'telephone' />
-            电话:<input type = 'text' name = 'fax' />
-            网址:<input type = 'text' name = 'website' />
-            <input type = 'submit' value = '提交' />
-            <input type = 'reset' value = '重置' />
-    </form>
-<hr/>
 <table border = 1>
         <tr style = 'font-weight:bold' align = 'center'>
                 <td width = '200' >公司</td>
@@ -52,5 +37,6 @@
         {% end %}
 </table>
 </center>
+<a <a href = 'CreateCompany' >添加</a>
 </body>
 </html>  

@@ -81,11 +81,17 @@ class CompanyManagerORM():
     def CreateNewCompany(self, company_info):
         new_company = Company(
             company_info['company_name'],
-            company_info['address'],
-            company_info['email'],
-            company_info['telephone'],
-            company_info['fax'],
-            company_info['website']
+            company_info['company_province'],
+            company_info['company_provincecode'],
+            company_info['company_city'],
+            company_info['company_citycode'],
+            company_info['company_area'],
+            company_info['company_areacode'],
+            company_info['company_address'],
+            company_info['company_email'],
+            company_info['company_telephone'],
+            company_info['company_fax'],
+            company_info['company_website']
         )
         self.session.add(new_company)
         self.session.commit()
@@ -108,7 +114,7 @@ class CompanyManagerORM():
     # Function: Update one piece of company's information,searching by company's name.
     def UpdateCompanyInfoByName(self, company_info):
         company_name = company_info['company_name']
-        company_info_without_name = {'address': company_info['address'],
+        company_info_without_name = {'company_province': company_info['company_province'],
                                   'email': company_info['email'],
                                   'telphone': company_info['telphone'],
                                   'fax': company_info['fax'],
