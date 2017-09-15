@@ -15,7 +15,7 @@ database_setting = {'database_type': 'mysql',
                     'connector': 'mysqlconnector',
                     'user_name': 'root',
                     'password': 'zhang@heng0617M',
-                    'host_name': '47.93.4.14',
+                    'host_name': 'localhost',
                     'database_name': 'platform',
                     'charset': 'charset=utf8'
                     }

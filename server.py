@@ -6,14 +6,14 @@ import tornado.ioloop
 import tornado.options
 import tornado.web
 
+from tornado.options import define, options
+
+import orm
+
 import logging.config
 
 logging.config.fileConfig('log.conf', disable_existing_loggers=False)
 logger = logging.getLogger(__name__)
-
-from tornado.options import define, options
-
-import orm
 
 define('port', default=9999, help='run on the given port', type=int)
 
@@ -31,6 +31,7 @@ class MainHandler(tornado.web.RequestHandler):  # 主Handler，用来响应首�
     def post(self):
         pass  # Do nothing
 
+
 # Name: CreateCompanyHandler
 # Writer: Heng
 class CreateCompanyHandler(tornado.web.RequestHandler):
@@ -41,6 +42,7 @@ class CreateCompanyHandler(tornado.web.RequestHandler):
 
     def post(self):
         pass
+
 
 # Name: AddCompanyHandler
 # Writer: Heng
@@ -67,7 +69,7 @@ class AddCompanyHandler(tornado.web.RequestHandler):
 
         Company_orm.CreateNewCompany(company_info)  # 调用ORM的方法将新建的用户信息写入数据库
 
-        self.redirect('/')  #Redirect to index.
+        self.redirect('/')  # Redirect to index.
 
 
 # Name: EditCompanyHandler
@@ -123,6 +125,18 @@ class DeleteCompanyHandler(tornado.web.RequestHandler):
     def post(self):
         pass
 
+
+# Name: WechatHandler
+# Writer: Heng
+class WechatHandler(tornado.web.RequestHandler):
+
+    def get(self):
+        pass    # Do nothing.
+
+    def post(self):
+        pass    # Do nothing.
+
+
 # Name: DetailCompanyHandler
 # Writer: Heng
 class DetailCompanyHandler(tornado.web.RequestHandler):
@@ -137,8 +151,9 @@ class DetailCompanyHandler(tornado.web.RequestHandler):
         else:
             logger.info("Show detail information successfully!")
 
-    def post(self): # Do nothing
-        pass
+    def post(self):
+        pass    # Do nothing.
+
 
 # Name: MainProcess
 # Writer: Heng
@@ -152,7 +167,8 @@ def MainProcess():
         (r'/DeleteCompany', DeleteCompanyHandler),
         (r'/UpdateCompanyInfo', UpdateCompanyInfoHandler),
         (r'/DetailCompany', DetailCompanyHandler),
-        (r'/CreateCompany', CreateCompanyHandler)
+        (r'/CreateCompany', CreateCompanyHandler),
+        (r'/Wechat/', WechatHandler)    # handle the request from wechat.
     ])
 
     http_server = tornado.httpserver.HTTPServer(application)

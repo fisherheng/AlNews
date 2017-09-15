@@ -85,3 +85,23 @@ FileNotFoundError: [Errno 2] No such file or directory: '/Users/zhangheng/Projec
 2017-09-13 23:39:31,389 - tornado.access - INFO - 200 GET /CreateCompany (::1) 1.06ms
 2017-09-13 23:40:33,070 - tornado.access - INFO - 302 POST /AddCompany (::1) 212.43ms
 2017-09-13 23:40:33,322 - tornado.access - INFO - 200 GET / (::1) 238.46ms
+2017-09-14 10:50:11,106 - __main__ - INFO - ==============================logging start==============================
+2017-09-14 10:50:17,070 - tornado.access - INFO - 200 GET / (::1) 11.34ms
+2017-09-14 10:50:21,879 - tornado.access - INFO - 200 GET /CreateCompany (::1) 2.22ms
+2017-09-14 10:51:06,070 - tornado.access - INFO - 302 POST /AddCompany (::1) 5.57ms
+2017-09-14 10:51:06,077 - tornado.access - INFO - 200 GET / (::1) 4.07ms
+2017-09-14 10:51:15,634 - tornado.access - INFO - 200 GET /DetailCompany?company_name=%E5%B1%B1%E4%B8%9C%E7%99%BE%E8%83%9C%E9%93%9D%E4%B8%9A%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8 (::1) 5.85ms
+2017-09-14 10:51:15,634 - __main__ - INFO - Show detail information successfully!
+2017-09-14 10:51:18,790 - tornado.access - INFO - 200 GET / (::1) 3.97ms
+2017-09-14 10:51:20,377 - tornado.access - INFO - 200 GET /DetailCompany?company_name=%E5%B1%B1%E4%B8%9C%E7%99%BE%E7%9B%9B%E9%93%9D%E4%B8%9A%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8 (::1) 3.55ms
+2017-09-14 10:51:20,377 - __main__ - INFO - Show detail information successfully!
+2017-09-14 10:51:22,237 - tornado.access - INFO - 200 GET / (::1) 4.09ms
+2017-09-14 11:23:19,345 - tornado.access - INFO - 200 GET /CreateCompany (::1) 1.83ms
+2017-09-14 14:31:09,731 - tornado.access - INFO - 200 GET / (::1) 17.31ms
+2017-09-14 14:31:15,118 - tornado.access - INFO - 200 GET /CreateCompany (::1) 0.70ms
+2017-09-14 14:31:17,607 - tornado.access - INFO - 200 GET / (::1) 4.28ms
+2017-09-15 09:25:18,746 - __main__ - INFO - ==============================logging start==============================
+2017-09-15 09:25:35,373 - tornado.access - INFO - 200 GET / (192.168.1.104) 12.44ms
+2017-09-15 09:25:47,656 - tornado.access - INFO - 200 GET /CreateCompany (192.168.1.104) 2.95ms
+2017-09-15 09:27:23,212 - tornado.access - INFO - 302 POST /AddCompany (192.168.1.104) 5.80ms
+2017-09-15 09:27:23,259 - tornado.access - INFO - 200 GET / (192.168.1.104) 5.88ms
