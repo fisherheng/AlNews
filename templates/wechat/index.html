@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="../../static/css/wechat/weui.css"/>
+</head>
+<body ontouchstart>
+<div class="page">
+    <div class="page__hd">
+        <h1 class="page__title">{{ title }}</h1>
+        <p class="page__desc">表单预览</p>
+    </div>
+    <div class="page__bd">
+        {% for company in companys %}
+        <div class="weui-form-preview">
+            <div class="weui-form-preview__hd">
+                <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">{{ company.company_name }}</label>
+                    <em class="weui-form-preview__value">{{ company.company_telephone }}</em>
+                </div>
+            </div>
+            <div class="weui-form-preview__bd">
+                <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">地址：</label>
+                    <span class="weui-form-preview__value">{{ company.company_address }}</span>
+                </div>
+                <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">邮箱：</label>
+                    <span class="weui-form-preview__value">{{ company.company_email }}</span>
+                </div>
+                <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">网址：</label>
+                    <span class="weui-form-preview__value">{{ company.company_website }}</span>
+                </div>
+            </div>
+            <div class="weui-form-preview__ft">
+                <a class="weui-form-preview__btn weui-form-preview__btn_primary" href="javascript:">操作</a>
+            </div>
+        </div>
+        <br>
+        {% end %}
+    </div>
+    <div class="page__ft">
+        <a href="javascript:home()"><img src="../../static/images/icon_footer_link.png" /></a>
+    </div>
+</div>
+</body>
+</html>

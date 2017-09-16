@@ -5,6 +5,7 @@ import tornado.httpserver  # 引入tornado的一些模块文件
 import tornado.ioloop
 import tornado.options
 import tornado.web
+import os
 
 from tornado.options import define, options
 
@@ -19,6 +20,9 @@ define('port', default=9999, help='run on the given port', type=int)
 
 Company_orm = orm.CompanyManagerORM()  # 创建一个全局ORM对象
 
+settings = {
+"static_path": os.path.join(os.path.dirname(__file__), "static")
+}#配置静态文件路径
 
 class MainHandler(tornado.web.RequestHandler):  # 主Handler，用来响应首页的URL
     def get(self):
@@ -131,7 +135,11 @@ class DeleteCompanyHandler(tornado.web.RequestHandler):
 class WechatHandler(tornado.web.RequestHandler):
 
     def get(self):
-        pass    # Do nothing.
+        title = '今日铝信'  # 这个title将会被发送到UserManager.html中的{{title}}部分
+        companys = Company_orm.GetAllCompany()  # Get all companies.
+        for company in companys:
+            logger.debug(company)
+        self.render('templates/wechat/index.html', title=title, companys=companys)
 
     def post(self):
         pass    # Do nothing.
@@ -169,7 +177,7 @@ def MainProcess():
         (r'/DetailCompany', DetailCompanyHandler),
         (r'/CreateCompany', CreateCompanyHandler),
         (r'/Wechat/', WechatHandler)    # handle the request from wechat.
-    ])
+    ],**settings)
 
     http_server = tornado.httpserver.HTTPServer(application)
     http_server.listen(options.port)    # Listening port.

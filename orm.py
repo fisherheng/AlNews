@@ -41,6 +41,7 @@ class Company(object):
         self.company_fax = company_fax
         self.company_website = company_website
 
+
 # Class: CompanyManagerORM
 # Writer: Heng
 class CompanyManagerORM():
@@ -129,7 +130,6 @@ class CompanyManagerORM():
             logger.info('Update company\' info failed')
         else:
             logger.info('Update company\'s info successfully')
-
 
     # Name: DeleteCompanyByName
     # Writer: Heng
