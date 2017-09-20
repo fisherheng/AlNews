@@ -1,13 +1,13 @@
 # coding: utf-8
 #!/usr/bin/env python
-
+import os
 from sqlalchemy import *
 from sqlalchemy.orm import *
 
 import logging.config
 
 # Init log
-logging.config.fileConfig('log.conf', disable_existing_loggers=False)
+logging.config.fileConfig(os.path.join(os.path.dirname(__file__), "../../conf/log.conf"), disable_existing_loggers=False)
 logger = logging.getLogger(__name__)
 
 # Settings to connect to mysql database
@@ -134,7 +134,7 @@ class CompanyManagerORM():
     # Name: DeleteCompanyByName
     # Writer: Heng
     # Function: Delete one piece of company's information, searching by company's name.
-    def DeleteCompanyByName(self, company_name): 
+    def DeleteCompanyByName(self, company_name):
         company_need_to_delete = self.session.query(Company).filter_by(
             company_name=company_name).all()[0]
         try:

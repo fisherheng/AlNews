@@ -1,28 +1,15 @@
 # coding: utf-8
 #!/usr/bin/env python
-
-import tornado.httpserver  # 引入tornado的一些模块文件
-import tornado.ioloop
-import tornado.options
-import tornado.web
 import os
-
-from tornado.options import define, options
-
-import orm
-
 import logging.config
+import tornado.web
 
-logging.config.fileConfig('log.conf', disable_existing_loggers=False)
+from alnews.model import Company
+
+Company_orm = Company.CompanyManagerORM()  # 创建一个全局ORM对象
+
+logging.config.fileConfig(os.path.join(os.path.dirname(__file__), "../../conf/log.conf"), disable_existing_loggers=False)
 logger = logging.getLogger(__name__)
-
-define('port', default=9999, help='run on the given port', type=int)
-
-Company_orm = orm.CompanyManagerORM()  # 创建一个全局ORM对象
-
-settings = {
-"static_path": os.path.join(os.path.dirname(__file__), "static")
-}#配置静态文件路径
 
 class MainHandler(tornado.web.RequestHandler):  # 主Handler，用来响应首页的URL
     def get(self):
@@ -163,12 +150,17 @@ class DetailCompanyHandler(tornado.web.RequestHandler):
         pass    # Do nothing.
 
 
-# Name: MainProcess
+# Name: RegisterHandler
 # Writer: Heng
-# Function: Main process.
-def MainProcess():
-    tornado.options.parse_command_line()
-    application = tornado.web.Application([  # 这里就是路由表，确定了哪些URL由哪些Handler响应
+class RegisterHandler(tornado.web.RequestHandler):
+
+    def get(self):
+        self.render('templates/wechat/register.html', title='第一步', step='手机号验证')
+
+    def post(self):
+        pass
+
+sub_handlers = [  # 这里就是路由表，确定了哪些URL由哪些Handler响应
         (r'/', MainHandler),
         (r'/AddCompany', AddCompanyHandler),
         (r'/EditCompany', EditCompanyHandler),
@@ -176,14 +168,6 @@ def MainProcess():
         (r'/UpdateCompanyInfo', UpdateCompanyInfoHandler),
         (r'/DetailCompany', DetailCompanyHandler),
         (r'/CreateCompany', CreateCompanyHandler),
-        (r'/Wechat/', WechatHandler)    # handle the request from wechat.
-    ],**settings)
-
-    http_server = tornado.httpserver.HTTPServer(application)
-    http_server.listen(options.port)    # Listening port.
-    tornado.ioloop.IOLoop.instance().start()  # Start server.
-
-
-if __name__ == '__main__':  # 文件的入口
-    logger.info('==============================logging start==============================')
-    MainProcess()
+        (r'/Wechat/', WechatHandler),    # handle the request from wechat.
+        (r'/Wechat/Register', RegisterHandler)
+    ]

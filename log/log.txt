@@ -1,145 +1,121 @@
-2017-09-15 19:53:32,325 - tornado.application - ERROR - Uncaught exception GET /Wechat/ (::1)
-HTTPServerRequest(protocol='http', host='localhost:9999', method='GET', uri='/Wechat/', version='HTTP/1.1', remote_ip='::1', headers={'Host': 'localhost:9999', 'Connection': 'keep-alive', 'Cache-Control': 'max-age=0', 'Upgrade-Insecure-Requests': '1', 'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1 wechatdevtools/0.15.152900 MicroMessenger/undefined Language/zh_CN webview/0', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch', 'Accept-Language': 'zh-CN,zh;q=0.8'})
+2017-09-17 20:15:09,349 - tornado.access - INFO - 200 GET /Wechat/Register (::1) 3.03ms
+2017-09-19 09:58:48,036 - __main__ - INFO - ==============================logging start==============================
+2017-09-19 09:58:58,706 - tornado.access - INFO - 200 GET / (::1) 21.32ms
+2017-09-19 09:58:59,591 - tornado.access - WARNING - 404 GET /favicon.ico (::1) 2.13ms
+2017-09-19 09:59:07,028 - tornado.access - INFO - 200 GET /Wechat/ (::1) 7.29ms
+2017-09-19 09:59:07,055 - tornado.access - INFO - 200 GET /static/css/wechat/weui.css (::1) 18.15ms
+2017-09-19 09:59:07,063 - tornado.access - INFO - 200 GET /static/images/icon_footer_link.png (::1) 2.48ms
+2017-09-19 15:56:58,023 - __main__ - INFO - ==============================logging start==============================
+2017-09-19 16:03:11,355 - __main__ - INFO - ==============================logging start==============================
+2017-09-19 16:05:00,754 - __main__ - INFO - ==============================logging start==============================
+2017-09-19 16:05:36,960 - __main__ - INFO - ==============================logging start==============================
+2017-09-19 16:05:54,310 - __main__ - INFO - ==============================logging start==============================
+2017-09-19 16:06:18,810 - __main__ - INFO - ==============================logging start==============================
+2017-09-19 16:14:07,910 - __main__ - INFO - ==============================logging start==============================
+2017-09-19 16:14:49,067 - __main__ - INFO - ==============================logging start==============================
+2017-09-19 16:23:19,179 - __main__ - INFO - ==============================logging start==============================
+2017-09-19 16:25:12,422 - __main__ - INFO - ==============================logging start==============================
+2017-09-19 16:26:10,378 - __main__ - INFO - ==============================logging start==============================
+2017-09-19 16:26:36,994 - __main__ - INFO - ==============================logging start==============================
+2017-09-19 16:28:12,865 - __main__ - INFO - ==============================logging start==============================
+2017-09-19 16:29:10,766 - __main__ - INFO - ==============================logging start==============================
+2017-09-19 16:34:23,245 - __main__ - INFO - ==============================logging start==============================
+2017-09-19 16:38:12,540 - __main__ - INFO - ==============================logging start==============================
+2017-09-19 16:39:47,967 - __main__ - INFO - ==============================logging start==============================
+2017-09-19 16:54:19,626 - __main__ - INFO - ==============================logging start==============================
+2017-09-19 16:57:25,680 - __main__ - INFO - ==============================logging start==============================
+2017-09-19 18:07:29,702 - __main__ - INFO - ==============================logging start==============================
+2017-09-19 18:07:40,981 - tornado.application - ERROR - Uncaught exception GET /Wechat/Register (::1)
+HTTPServerRequest(protocol='http', host='localhost:9999', method='GET', uri='/Wechat/Register', version='HTTP/1.1', remote_ip='::1', headers={'Host': 'localhost:9999', 'Connection': 'keep-alive', 'Cache-Control': 'max-age=0', 'Upgrade-Insecure-Requests': '1', 'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1 wechatdevtools/0.15.152900 MicroMessenger/undefined Language/zh_CN webview/0', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch', 'Accept-Language': 'zh-CN,zh;q=0.8', 'If-None-Match': '"c9380c277ca6a07527450e17f94ee67a9cd3e92f"'})
 Traceback (most recent call last):
   File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 1509, in _execute
     result = method(*self.path_args, **self.path_kwargs)
-  File "/Users/zhangheng/Projects/AlNews/server.py", line 134, in get
-    self.render('templates/wechat/index.html')
+  File "/Users/zhangheng/Projects/AlNews/alnews/handlers/wechat.py", line 33, in get
+    self.render('templates/wechat/register.html', title='第一步', step='手机号验证')
   File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 724, in render
     html = self.render_string(template_name, **kwargs)
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 865, in render_string
-    return t.generate(**namespace)
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/template.py", line 348, in generate
-    return execute()
-  File "templates/wechat/index_html.generated.py", line 5, in _tt_execute
-    for company in companys:  # templates/wechat/index.html:18
-NameError: name 'companys' is not defined
-2017-09-15 19:53:32,332 - tornado.access - ERROR - 500 GET /Wechat/ (::1) 11.59ms
-2017-09-15 19:54:42,583 - __main__ - INFO - ==============================logging start==============================
-2017-09-15 19:54:55,202 - tornado.application - ERROR - Uncaught exception GET /Wechat/ (::1)
-HTTPServerRequest(protocol='http', host='localhost:9999', method='GET', uri='/Wechat/', version='HTTP/1.1', remote_ip='::1', headers={'Host': 'localhost:9999', 'Connection': 'keep-alive', 'Cache-Control': 'max-age=0', 'Upgrade-Insecure-Requests': '1', 'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1 wechatdevtools/0.15.152900 MicroMessenger/undefined Language/zh_CN webview/0', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch', 'Accept-Language': 'zh-CN,zh;q=0.8'})
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 862, in render_string
+    t = loader.load(template_name)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/template.py", line 427, in load
+    self.templates[name] = self._create_template(name)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/template.py", line 454, in _create_template
+    with open(path, "rb") as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/zhangheng/Projects/AlNews/alnews/templates/templates/wechat/register.html'
+2017-09-19 18:07:40,988 - tornado.access - ERROR - 500 GET /Wechat/Register (::1) 7.98ms
+2017-09-19 18:09:07,672 - __main__ - INFO - ==============================logging start==============================
+2017-09-19 18:09:11,264 - tornado.access - WARNING - 404 GET /Wechat (::1) 1.00ms
+2017-09-19 18:09:21,982 - tornado.access - WARNING - 404 GET /Wechat (::1) 0.38ms
+2017-09-19 18:10:12,693 - __main__ - INFO - ==============================logging start==============================
+2017-09-19 18:10:16,585 - tornado.access - WARNING - 404 GET /Wechat (::1) 0.83ms
+2017-09-19 18:10:35,109 - tornado.access - WARNING - 404 GET /Wechat/register (::1) 0.57ms
+2017-09-19 18:10:44,773 - tornado.application - ERROR - Uncaught exception GET /Wechat/Register (::1)
+HTTPServerRequest(protocol='http', host='localhost:9999', method='GET', uri='/Wechat/Register', version='HTTP/1.1', remote_ip='::1', headers={'Host': 'localhost:9999', 'Connection': 'keep-alive', 'Upgrade-Insecure-Requests': '1', 'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1 wechatdevtools/0.15.152900 MicroMessenger/undefined Language/zh_CN webview/0', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch', 'Accept-Language': 'zh-CN,zh;q=0.8'})
 Traceback (most recent call last):
   File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 1509, in _execute
     result = method(*self.path_args, **self.path_kwargs)
-  File "/Users/zhangheng/Projects/AlNews/server.py", line 138, in get
-    self.render('templates/wechat/index.html', title=title, companys=companys)
+  File "/Users/zhangheng/Projects/AlNews/alnews/handlers/wechat.py", line 33, in get
+    self.render('alnews/templates/wechat/register.html', title='第一步', step='手机号验证')
   File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 724, in render
     html = self.render_string(template_name, **kwargs)
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 865, in render_string
-    return t.generate(**namespace)
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/template.py", line 348, in generate
-    return execute()
-  File "templates/wechat/index_html.generated.py", line 7, in _tt_execute
-    _tt_tmp = company.companyname  # templates/wechat/index.html:22
-AttributeError: 'Company' object has no attribute 'companyname'
-2017-09-15 19:54:55,204 - tornado.access - ERROR - 500 GET /Wechat/ (::1) 17.45ms
-2017-09-15 19:54:57,313 - tornado.application - ERROR - Uncaught exception GET /Wechat/ (::1)
-HTTPServerRequest(protocol='http', host='localhost:9999', method='GET', uri='/Wechat/', version='HTTP/1.1', remote_ip='::1', headers={'Host': 'localhost:9999', 'Connection': 'keep-alive', 'Cache-Control': 'max-age=0', 'Upgrade-Insecure-Requests': '1', 'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1 wechatdevtools/0.15.152900 MicroMessenger/undefined Language/zh_CN webview/0', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch', 'Accept-Language': 'zh-CN,zh;q=0.8'})
-Traceback (most recent call last):
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 1509, in _execute
-    result = method(*self.path_args, **self.path_kwargs)
-  File "/Users/zhangheng/Projects/AlNews/server.py", line 138, in get
-    self.render('templates/wechat/index.html', title=title, companys=companys)
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 724, in render
-    html = self.render_string(template_name, **kwargs)
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 865, in render_string
-    return t.generate(**namespace)
-  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/template.py", line 348, in generate
-    return execute()
-  File "templates/wechat/index_html.generated.py", line 7, in _tt_execute
-    _tt_tmp = company.companyname  # templates/wechat/index.html:22
-AttributeError: 'Company' object has no attribute 'companyname'
-2017-09-15 19:54:57,317 - tornado.access - ERROR - 500 GET /Wechat/ (::1) 13.09ms
-2017-09-15 19:55:49,338 - __main__ - INFO - ==============================logging start==============================
-2017-09-15 19:55:54,346 - tornado.access - INFO - 200 GET /Wechat/ (::1) 12.66ms
-2017-09-15 19:55:54,399 - tornado.access - WARNING - 404 GET /statics/css/wechat/weui.css (::1) 0.86ms
-2017-09-15 19:55:54,401 - tornado.access - WARNING - 404 GET /statics/css/wechat/example.css (::1) 0.81ms
-2017-09-15 19:58:36,059 - tornado.access - INFO - 200 GET /Wechat/ (::1) 3.98ms
-2017-09-15 19:58:36,067 - tornado.access - WARNING - 404 GET /statics/css/wechat/weui.css (::1) 0.46ms
-2017-09-15 19:58:36,069 - tornado.access - WARNING - 404 GET /statics/css/wechat/example.css (::1) 0.56ms
-2017-09-15 19:58:41,727 - tornado.access - WARNING - 404 GET /statics/css/wechat/weui.css (::1) 0.75ms
-2017-09-15 19:58:41,729 - tornado.access - WARNING - 404 GET /statics/css/wechat/example.css (::1) 0.70ms
-2017-09-15 20:05:35,891 - __main__ - INFO - ==============================logging start==============================
-2017-09-15 20:05:43,771 - tornado.access - INFO - 200 GET /Wechat/ (::1) 12.52ms
-2017-09-15 20:05:43,821 - tornado.access - WARNING - 404 GET /statics/css/wechat/example.css (::1) 0.82ms
-2017-09-15 20:05:43,822 - tornado.access - WARNING - 404 GET /statics/css/wechat/weui.css (::1) 0.64ms
-2017-09-15 20:55:26,505 - __main__ - INFO - ==============================logging start==============================
-2017-09-15 20:55:35,673 - tornado.access - INFO - 200 GET / (::1) 12.03ms
-2017-09-15 20:55:42,016 - tornado.access - INFO - 200 GET /Wechat/ (::1) 4.54ms
-2017-09-15 20:55:42,057 - tornado.access - WARNING - 404 GET /statics/css/wechat/weui.css (::1) 0.79ms
-2017-09-15 20:55:42,060 - tornado.access - WARNING - 404 GET /statics/css/wechat/example.css (::1) 0.85ms
-2017-09-15 20:55:42,066 - tornado.access - WARNING - 404 GET /Wechat/images/icon_footer_link.png (::1) 0.74ms
-2017-09-15 20:59:57,110 - __main__ - INFO - ==============================logging start==============================
-2017-09-15 21:00:00,801 - tornado.access - INFO - 200 GET /Wechat/ (::1) 8.18ms
-2017-09-15 21:00:00,814 - tornado.access - WARNING - 404 GET /statics/css/wechat/weui.css (::1) 0.83ms
-2017-09-15 21:00:00,816 - tornado.access - WARNING - 404 GET /statics/css/wechat/example.css (::1) 0.80ms
-2017-09-15 21:00:00,822 - tornado.access - WARNING - 404 GET /Wechat/images/icon_footer_link.png (::1) 0.77ms
-2017-09-15 21:01:36,161 - tornado.access - INFO - 200 GET /Wechat/ (::1) 14.38ms
-2017-09-15 21:01:41,708 - tornado.access - WARNING - 404 GET /statics/css/wechat/weui.css (::1) 0.85ms
-2017-09-15 21:01:41,710 - tornado.access - WARNING - 404 GET /statics/css/wechat/example.css (::1) 0.83ms
-2017-09-15 21:03:42,520 - __main__ - INFO - ==============================logging start==============================
-2017-09-15 21:03:49,646 - tornado.access - INFO - 200 GET /Wechat/ (::1) 13.42ms
-2017-09-15 21:03:49,664 - tornado.access - WARNING - 404 GET /Wechat/weui.css (::1) 0.80ms
-2017-09-15 21:03:49,667 - tornado.access - WARNING - 404 GET /Wechat/example.css (::1) 1.77ms
-2017-09-15 21:03:49,675 - tornado.access - WARNING - 404 GET /Wechat/images/icon_footer_link.png (::1) 0.85ms
-2017-09-15 21:03:50,331 - tornado.access - WARNING - 404 GET /Wechat/example.css (::1) 0.61ms
-2017-09-15 21:05:33,755 - __main__ - INFO - ==============================logging start==============================
-2017-09-15 21:05:36,555 - tornado.access - INFO - 200 GET /Wechat/ (::1) 13.26ms
-2017-09-15 21:05:36,577 - tornado.access - WARNING - 404 GET /Wechat/weui.css (::1) 0.70ms
-2017-09-15 21:05:36,580 - tornado.access - WARNING - 404 GET /Wechat/images/icon_footer_link.png (::1) 1.83ms
-2017-09-15 21:05:40,013 - tornado.access - INFO - 200 GET /Wechat/ (::1) 4.84ms
-2017-09-15 21:05:40,037 - tornado.access - WARNING - 404 GET /Wechat/weui.css (::1) 0.79ms
-2017-09-15 21:05:40,039 - tornado.access - WARNING - 404 GET /Wechat/images/icon_footer_link.png (::1) 0.74ms
-2017-09-15 21:06:22,345 - tornado.access - INFO - 200 GET /Wechat/ (::1) 4.68ms
-2017-09-15 21:06:22,376 - tornado.access - WARNING - 404 GET /Wechat/images/icon_footer_link.png (::1) 0.65ms
-2017-09-15 21:06:22,378 - tornado.access - WARNING - 404 GET /Wechat/weui.css (::1) 0.70ms
-2017-09-15 21:06:37,242 - __main__ - INFO - ==============================logging start==============================
-2017-09-15 21:06:40,598 - tornado.access - INFO - 200 GET /Wechat/ (::1) 13.03ms
-2017-09-15 21:06:40,625 - tornado.access - WARNING - 404 GET /weui.css (::1) 0.83ms
-2017-09-15 21:06:40,627 - tornado.access - WARNING - 404 GET /Wechat/images/icon_footer_link.png (::1) 0.60ms
-2017-09-15 21:07:10,605 - __main__ - INFO - ==============================logging start==============================
-2017-09-15 21:07:14,893 - tornado.access - INFO - 200 GET /Wechat/ (::1) 11.08ms
-2017-09-15 21:07:14,919 - tornado.access - WARNING - 404 GET /Wechat/weui.css (::1) 0.92ms
-2017-09-15 21:07:14,923 - tornado.access - WARNING - 404 GET /Wechat/images/icon_footer_link.png (::1) 0.77ms
-2017-09-15 21:08:57,217 - __main__ - INFO - ==============================logging start==============================
-2017-09-15 21:09:04,915 - tornado.access - INFO - 200 GET /Wechat/ (::1) 17.14ms
-2017-09-15 21:09:04,985 - tornado.access - WARNING - 404 GET /Wechat/weui.css (::1) 0.82ms
-2017-09-15 21:09:04,987 - tornado.access - WARNING - 404 GET /Wechat/images/icon_footer_link.png (::1) 0.61ms
-2017-09-15 21:09:32,553 - __main__ - INFO - ==============================logging start==============================
-2017-09-15 21:09:47,620 - tornado.access - INFO - 200 GET /Wechat/ (::1) 10.77ms
-2017-09-15 21:09:47,671 - tornado.access - WARNING - 404 GET /Wechat/weui.css (::1) 0.70ms
-2017-09-15 21:09:47,673 - tornado.access - WARNING - 404 GET /Wechat/images/icon_footer_link.png (::1) 0.65ms
-2017-09-15 21:09:55,520 - tornado.access - WARNING - 404 GET /Wechat/weui.css (::1) 0.76ms
-2017-09-15 21:10:12,562 - tornado.access - INFO - 200 GET /Wechat/ (::1) 4.92ms
-2017-09-15 21:10:12,580 - tornado.access - WARNING - 404 GET /Wechat/weui.css (::1) 0.71ms
-2017-09-15 21:10:12,586 - tornado.access - WARNING - 404 GET /Wechat/images/icon_footer_link.png (::1) 0.74ms
-2017-09-15 21:22:17,379 - __main__ - INFO - ==============================logging start==============================
-2017-09-15 21:22:21,036 - tornado.access - INFO - 200 GET /Wechat/ (::1) 18.03ms
-2017-09-15 21:22:21,081 - tornado.access - WARNING - 404 GET /Wechat/images/icon_footer_link.png (::1) 0.99ms
-2017-09-15 21:22:21,083 - tornado.access - WARNING - 404 GET /statics/css/wechat/weui.css (::1) 0.94ms
-2017-09-15 21:25:36,645 - __main__ - INFO - ==============================logging start==============================
-2017-09-15 21:25:41,436 - tornado.access - INFO - 200 GET /Wechat/ (::1) 14.43ms
-2017-09-15 21:25:41,501 - tornado.access - WARNING - 404 GET /Wechat/images/icon_footer_link.png (::1) 2.68ms
-2017-09-15 21:25:41,505 - tornado.access - WARNING - 404 GET /statics/css/wechat/weui.css (::1) 0.83ms
-2017-09-15 21:26:21,530 - __main__ - INFO - ==============================logging start==============================
-2017-09-15 21:26:24,679 - tornado.access - INFO - 200 GET /Wechat/ (::1) 15.33ms
-2017-09-15 21:26:24,709 - tornado.access - WARNING - 404 GET /Wechat/images/icon_footer_link.png (::1) 0.66ms
-2017-09-15 21:26:24,711 - tornado.access - WARNING - 404 GET /statics/css/wechat/weui.css (::1) 1.14ms
-2017-09-15 21:26:58,208 - __main__ - INFO - ==============================logging start==============================
-2017-09-15 21:27:01,589 - tornado.access - INFO - 200 GET /Wechat/ (::1) 12.05ms
-2017-09-15 21:27:01,632 - tornado.access - WARNING - 404 GET /Wechat/images/icon_footer_link.png (::1) 4.68ms
-2017-09-15 21:27:01,653 - tornado.access - INFO - 200 GET /static/css/wechat/weui.css (::1) 19.15ms
-2017-09-15 21:27:30,697 - tornado.access - INFO - 200 GET /Wechat/ (::1) 18.90ms
-2017-09-15 21:27:30,746 - tornado.access - INFO - 200 GET /static/css/wechat/weui.css (::1) 3.55ms
-2017-09-15 21:27:30,748 - tornado.access - WARNING - 404 GET /Wechat/images/icon_footer_link.png (::1) 0.85ms
-2017-09-15 21:29:20,562 - __main__ - INFO - ==============================logging start==============================
-2017-09-15 21:29:32,444 - tornado.access - INFO - 200 GET /Wechat/ (::1) 12.57ms
-2017-09-15 21:29:32,509 - tornado.access - INFO - 200 GET /static/images/icon_footer_link.png (::1) 15.04ms
-2017-09-15 21:30:08,208 - tornado.access - INFO - 304 GET /Wechat/ (::1) 9.99ms
-2017-09-15 21:31:02,192 - tornado.access - INFO - 304 GET /Wechat/ (::1) 8.35ms
-2017-09-15 22:20:24,367 - __main__ - INFO - ==============================logging start==============================
-2017-09-15 22:20:27,854 - tornado.access - INFO - 200 GET /Wechat/ (::1) 19.62ms
-2017-09-15 22:20:27,929 - tornado.access - INFO - 304 GET /static/images/icon_footer_link.png (::1) 12.37ms
-2017-09-15 22:20:27,934 - tornado.access - INFO - 304 GET /static/css/wechat/weui.css (::1) 3.80ms
-2017-09-15 22:20:50,511 - __main__ - INFO - ==============================logging start==============================
-2017-09-15 22:20:54,200 - tornado.access - INFO - 200 GET /Wechat/ (::1) 12.88ms
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/web.py", line 862, in render_string
+    t = loader.load(template_name)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/template.py", line 427, in load
+    self.templates[name] = self._create_template(name)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/tornado/template.py", line 454, in _create_template
+    with open(path, "rb") as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/zhangheng/Projects/AlNews/alnews/templates/alnews/templates/wechat/register.html'
+2017-09-19 18:10:44,779 - tornado.access - ERROR - 500 GET /Wechat/Register (::1) 5.89ms
+2017-09-19 18:12:23,256 - __main__ - INFO - ==============================logging start==============================
+2017-09-19 18:12:35,936 - tornado.access - WARNING - 404 GET /Wechat (::1) 0.68ms
+2017-09-19 18:12:42,204 - tornado.access - INFO - 200 GET /Wechat/Register (::1) 3.41ms
+2017-09-19 18:12:42,279 - tornado.access - INFO - 304 GET /static/css/wechat/weui.css (::1) 14.67ms
+2017-09-19 18:13:02,238 - __main__ - INFO - ==============================logging start==============================
+2017-09-19 18:13:07,986 - tornado.access - WARNING - 404 GET /Wechat (::1) 0.82ms
+2017-09-19 18:14:37,911 - tornado.access - INFO - 200 GET /Wechat/ (::1) 14.72ms
+2017-09-19 18:14:37,973 - tornado.access - INFO - 304 GET /static/images/icon_footer_link.png (::1) 13.45ms
+2017-09-19 18:15:32,967 - tornado.access - INFO - 304 GET /Wechat/Register (::1) 2.45ms
+2017-09-19 18:29:42,072 - tornado.access - WARNING - 404 GET / (112.38.48.188) 0.56ms
+2017-09-19 18:29:43,537 - tornado.access - WARNING - 404 GET /favicon.ico (112.38.48.188) 2.62ms
+2017-09-19 18:29:47,942 - tornado.access - WARNING - 404 GET / (112.38.48.188) 0.84ms
+2017-09-19 18:29:58,024 - tornado.access - INFO - 200 GET /Wechat/ (112.38.48.188) 5.68ms
+2017-09-19 18:29:58,575 - tornado.access - INFO - 200 GET /static/css/wechat/weui.css (112.38.48.188) 8.31ms
+2017-09-19 18:29:59,122 - tornado.access - INFO - 200 GET /static/images/icon_footer_link.png (112.38.48.188) 1.73ms
+2017-09-19 18:30:33,891 - tornado.access - WARNING - 404 GET / (117.185.27.115) 0.72ms
+2017-09-19 18:30:59,055 - tornado.access - WARNING - 404 GET / (117.185.27.115) 0.73ms
+2017-09-19 19:58:42,171 - tornado.access - INFO - 200 GET /Wechat/ (112.38.48.188) 20.97ms
+2017-09-19 19:58:43,010 - tornado.access - INFO - 200 GET /static/css/wechat/weui.css (112.38.48.188) 8.66ms
+2017-09-19 20:57:17,098 - tornado.access - WARNING - 404 GET / (112.38.48.188) 4.07ms
+2017-09-19 20:57:24,798 - tornado.access - INFO - 304 GET /Wechat/ (112.38.48.188) 22.23ms
+2017-09-19 20:57:25,389 - tornado.access - INFO - 200 GET /static/images/icon_footer_link.png (112.38.48.188) 4.63ms
+2017-09-19 20:59:12,380 - tornado.access - WARNING - 404 GET / (112.38.48.188) 0.46ms
+2017-09-19 20:59:14,122 - tornado.access - WARNING - 404 GET /favicon.ico (112.38.48.188) 0.63ms
+2017-09-19 21:37:40,818 - tornado.access - WARNING - 404 GET / (127.0.0.1) 2.43ms
+2017-09-19 21:37:41,684 - tornado.access - WARNING - 404 GET /favicon.ico (127.0.0.1) 1.26ms
+2017-09-19 21:37:47,050 - tornado.access - WARNING - 404 GET /Wechat (127.0.0.1) 0.45ms
+2017-09-19 21:37:50,488 - tornado.access - INFO - 200 GET /Wechat/ (127.0.0.1) 14.99ms
+2017-09-19 21:37:50,508 - tornado.access - INFO - 200 GET /static/css/wechat/weui.css (127.0.0.1) 11.96ms
+2017-09-19 21:37:50,512 - tornado.access - INFO - 200 GET /static/images/icon_footer_link.png (127.0.0.1) 2.44ms
+2017-09-19 21:43:59,475 - __main__ - INFO - ==============================logging start==============================
+2017-09-20 08:31:28,553 - __main__ - INFO - ==============================logging start==============================
+2017-09-20 08:31:41,580 - tornado.access - WARNING - 404 GET /Wechat (::1) 0.59ms
+2017-09-20 08:31:43,834 - tornado.access - INFO - 304 GET /Wechat/ (::1) 16.47ms
+2017-09-20 08:31:43,897 - tornado.access - INFO - 304 GET /static/css/wechat/weui.css (::1) 17.00ms
+2017-09-20 08:31:43,900 - tornado.access - INFO - 304 GET /static/images/icon_footer_link.png (::1) 1.61ms
+2017-09-20 08:34:37,592 - tornado.access - WARNING - 404 GET / (127.0.0.1) 0.50ms
+2017-09-20 08:34:44,911 - tornado.access - INFO - 304 GET /Wechat/ (127.0.0.1) 5.29ms
+2017-09-20 08:34:44,923 - tornado.access - INFO - 304 GET /static/css/wechat/weui.css (127.0.0.1) 1.10ms
+2017-09-20 08:34:44,934 - tornado.access - INFO - 304 GET /static/images/icon_footer_link.png (127.0.0.1) 1.80ms
+2017-09-20 15:34:07,117 - __main__ - INFO - ==============================logging start==============================
+2017-09-20 15:34:48,831 - tornado.access - INFO - 304 GET /Wechat/ (::1) 36.03ms
+2017-09-20 15:36:06,145 - __main__ - INFO - ==============================logging start==============================
+2017-09-20 15:36:32,207 - tornado.access - INFO - 304 GET /Wechat/ (::1) 6.10ms
+2017-09-20 15:36:37,325 - tornado.access - INFO - 304 GET /Wechat/Register (::1) 6.75ms
+2017-09-20 15:40:10,622 - tornado.access - INFO - 304 GET /Wechat/ (::1) 7.13ms
+2017-09-20 15:40:10,849 - tornado.access - WARNING - 404 GET /favicon.ico (::1) 1.81ms
+2017-09-20 15:40:15,370 - tornado.access - INFO - 304 GET /Wechat/Register (::1) 0.64ms
+2017-09-20 15:40:25,057 - __main__ - INFO - ==============================logging start==============================
+2017-09-20 15:41:19,419 - __main__ - INFO - ==============================logging start==============================
+2017-09-20 15:41:26,000 - tornado.access - INFO - 304 GET /Wechat/ (::1) 12.75ms
+2017-09-20 15:41:26,202 - tornado.access - WARNING - 404 GET /favicon.ico (::1) 1.86ms
+2017-09-20 15:44:31,904 - __main__ - INFO - ==============================logging start==============================
+2017-09-20 15:44:36,680 - tornado.access - INFO - 304 GET /Wechat/ (::1) 14.05ms
