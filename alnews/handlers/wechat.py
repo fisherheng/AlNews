@@ -39,5 +39,6 @@ class RegisterHandler(tornado.web.RequestHandler):
 # Writer: Heng
 sub_handlers = [
         (r'/Wechat/', WechatHandler),
-        (r'/Wechat/Register', RegisterHandler)
-    ]
+        (r'/Wechat/Register', RegisterHandler),
+        (r'/MP_verify_dBJQHDfdx5gEnQ0H.txt', tornado.web.StaticFileHandler, {"path": "/alnews/static"}),
+]

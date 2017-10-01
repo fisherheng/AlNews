@@ -160,6 +160,8 @@ class RegisterHandler(tornado.web.RequestHandler):
     def post(self):
         pass
 
+#
+# Writer: Heng
 sub_handlers = [  # 这里就是路由表，确定了哪些URL由哪些Handler响应
         (r'/', MainHandler),
         (r'/AddCompany', AddCompanyHandler),
@@ -168,6 +170,4 @@ sub_handlers = [  # 这里就是路由表，确定了哪些URL由哪些Handler�
         (r'/UpdateCompanyInfo', UpdateCompanyInfoHandler),
         (r'/DetailCompany', DetailCompanyHandler),
         (r'/CreateCompany', CreateCompanyHandler),
-        (r'/Wechat/', WechatHandler),    # handle the request from wechat.
-        (r'/Wechat/Register', RegisterHandler)
     ]
